@@ -1,0 +1,21 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './Pages/App/App';
+import './Styles/_commonStyles.scss';
+import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
+import {setupStore} from "./Store/store";
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+const store = setupStore();
+root.render(
+  <React.StrictMode>
+      <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+      </Provider>
+  </React.StrictMode>
+);
+
