@@ -1,45 +1,15 @@
-.staffPage{
+.staffPage {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
-  gap:10px;
+  gap: 10px;
   padding: 20px 0 0 0;
   box-sizing: border-box;
-  width:100%;
+  width: 100%;
 
-
-  .settingsBar{
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-    width:100%;
-    box-sizing: border-box;
-    padding: 0 30px 0 30px;
-
-    .input{
-      width: 400px;
-      height:30px;
-     }
-
-    .typeContainer{
-      display: flex;
-      flex-flow: row nowrap;
-      align-items: center;
-      justify-content: center;
-      gap:20px;
-      .typeImg{
-        width:30px;
-        cursor: pointer;
-      }
-
-    }
-
-  }
-
-  .contentStaff{
-    width:100%;
-    height:fit-content;
+  .contentStaff {
+    width: 100%;
+    height: fit-content;
   }
 }

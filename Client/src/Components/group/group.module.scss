@@ -1,16 +1,16 @@
-.group{
-  width:95%;
-  border:2px solid #d9d8d8;
-  height:fit-content;
+.group {
+  width: 95%;
+  border: 2px solid #d9d8d8;
+  height: fit-content;
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
   box-sizing: border-box;
-  padding:20px;
-  gap:5px;
+  padding: 20px;
+  gap: 5px;
 
-  .header{
+  .header {
     align-self: flex-start;
     font-size: 22px;
     color: #737373;
@@ -18,27 +18,26 @@
     margin: 0 0 10px 0;
   }
 
-  .person{
-    width:100%;
+  .person {
+    width: 100%;
     height: 70px;
-    border:2px solid #d9d8d8;
+    border: 2px solid #d9d8d8;
     box-sizing: border-box;
-    padding:15px;
+    padding: 15px;
 
-    .pName{
-
+    .pName {
     }
 
-    .pPost{
+    .pPost {
       opacity: 0.5;
     }
   }
 
-  .button{
+  .button {
     align-self: flex-start;
     margin: 20px 0 20px 0;
     box-sizing: border-box;
-    padding:15px 20px 15px 20px;
+    padding: 15px 20px 15px 20px;
     border-radius: 20px;
     color: #ffffff;
     background: #0156ff;

@@ -1,5 +1,5 @@
-.personCard, {
-  width:280px;
+.personCard {
+  width: 280px;
   height: 350px;
 
   box-sizing: border-box;
@@ -7,53 +7,52 @@
   flex-flow: column nowrap;
   align-items: center;
   justify-content: flex-start;
-  padding:20px;
+  padding: 20px;
   gap: 20px;
 
-  .topLevel{
-    width:100%;
+  .topLevel {
+    width: 100%;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
     height: 30px;
 
-    .uploadImg{
-      width:30px;
+    .uploadImg {
+      width: 30px;
       height: 30px;
-      cursor:pointer;
+      cursor: pointer;
     }
   }
 
-  .cardInfo{
+  .cardInfo {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: flex-start;
 
-    .pTextName{
+    .pTextName {
       font-weight: bold;
       font-size: 14px;
     }
 
-    .accountImg{
-      width:100px;
-      height:100px;
-      margin:20px 0 20px 0;
+    .accountImg {
+      width: 100px;
+      height: 100px;
+      margin: 20px 0 20px 0;
     }
 
-    .pText{
+    .pText {
       font-size: 14px;
       margin: 5px 0 5px 0;
     }
   }
-
 }
 
-.personCard{
+.personCard {
   background: #f4f4f4;
 }
 
-.personCardChecked{
+.personCardChecked {
   background: #e4e4e4;
 }

@@ -1,52 +1,62 @@
-.personUnit{
+.personUnit {
   width: 99vw;
   height: fit-content;
-  display:flex;
+  display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: center;
 
-  .header{
-    width:100%;
-    height:30px;
-    display:flex;
+  .header {
+    width: 100%;
+    height: 30px;
+    display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: flex-start;
     box-sizing: border-box;
-    gap:10px;
-    padding:0 0 0 20px;
+    gap: 10px;
+    padding: 0 0 0 20px;
   }
 
-  .header{
+  .header {
     background: #e8f0ee;
     font-weight: bolder;
   }
 
-  .oddPosition{
+  .oddPosition {
     background: #f1f1f1;
   }
-  .name, .domain, .email, .groups, .phone{
+  .name,
+  .domain,
+  .email,
+  .groups,
+  .phone {
     color: #222222;
     font-size: 14px;
     height: fit-content;
     text-align: start;
   }
 
-  .arrowImg, .arrowImgUp,.arrowImgDown{
-    width:15px;
-    height:15px;
+  .arrowImg,
+  .arrowImgUp,
+  .arrowImgDown {
+    width: 15px;
+    height: 15px;
   }
 
-  .arrowImgUp{
+  .arrowImgUp {
     transform: rotate(90deg);
   }
 
-  .arrowImgDown{
+  .arrowImgDown {
     transform: rotate(-90deg);
   }
 
-  .emailContainer, .nameContainer, .domainContainer,.groupsContainer, .phoneContainer{
+  .emailContainer,
+  .nameContainer,
+  .domainContainer,
+  .groupsContainer,
+  .phoneContainer {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
@@ -54,23 +64,22 @@
     cursor: pointer;
   }
 
-  .nameContainer{
+  .nameContainer {
     width: 10%;
   }
 
-  .domainContainer{
+  .domainContainer {
     width: 20%;
   }
 
-  .emailContainer{
+  .emailContainer {
     width: 30%;
   }
 
-  .groupsContainer{
+  .groupsContainer {
     width: 20%;
   }
-  .phoneContainer{
+  .phoneContainer {
     width: 20%;
   }
-
 }

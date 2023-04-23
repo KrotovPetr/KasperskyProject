@@ -1,0 +1,11 @@
+{
+  "name": "KasperskyProject",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/KrotovPetr/KasperskyProject.git",
+  "author": "Krotov Petr <83280920+KrotovPetr@users.noreply.github.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "2.8.8"
+  }
+}
