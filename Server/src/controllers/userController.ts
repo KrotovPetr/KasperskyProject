@@ -1,9 +1,9 @@
 import express from 'express';
-import { Group, User } from '../models/db/groupModel';
+import { Group } from '../models/db/group';
 import { Op } from 'sequelize';
 import { UserType } from '../models/types/userType';
 import { Model } from 'sequelize-typescript';
-import {sequelize} from "../db";
+import { User } from '../models/db/userModel';
 
 class UserController {
     async getAllUsersWithSort(
@@ -48,23 +48,7 @@ class UserController {
                     },
                 });
             }
-            const [result, metadata] = await sequelize.query('SELECT * FROM users;')
-            console.log(result);
             return res.status(200).json({ users });
-        } catch (e) {
-            next(e);
-        }
-    }
-
-    async getUserById(
-        req: express.Request,
-        res: express.Response,
-        next: express.NextFunction
-    ) {
-        try {
-            const { id } = req.query;
-            const user = await User.findOne({ where: { idUser: Number(id) } });
-            return res.status(200).json({ user });
         } catch (e) {
             next(e);
         }

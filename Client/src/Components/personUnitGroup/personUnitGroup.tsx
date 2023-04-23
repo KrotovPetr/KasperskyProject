@@ -6,14 +6,12 @@ import { staffGroupSliderSettings } from '../../Utils/settings/sliderSettings';
 import { v4 as uuidv4 } from 'uuid';
 import GroupForm from '../groupForm/groupForm';
 import { TGroup } from '../../Utils/Types/types';
-import {useFetchAllGroupQuery} from "../../Store/apiQuery/groupService";
-import {useAppSelector} from "../../Store/hooks/store";
-
+import { useFetchAllGroupQuery } from '../../Store/apiQuery/groupService';
+import { useAppSelector } from '../../Store/hooks/store';
 
 const PersonUnitGroup: FC = () => {
-    const sortGroupQuery = useAppSelector(state=>state.usersReducer.sortGroupQuery);
-    const {data} = useFetchAllGroupQuery(sortGroupQuery);
-    console.log(data);
+    const { sortGroupQuery } = useAppSelector((state) => state.usersReducer);
+    const { data } = useFetchAllGroupQuery(sortGroupQuery);
     return (
         <div className={styles.unitGroup}>
             {data && (

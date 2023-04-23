@@ -1,5 +1,5 @@
 import { ApiError } from '../exceptions/apiError';
-export function errorMiddlewareFunction(err, req, res, next) {
+export function errorMiddlewareFunction(err, req, res) {
     console.log(err);
     if (err instanceof ApiError) {
         return res

@@ -1,9 +1,10 @@
 import express from 'express';
-import { Group, User } from '../models/db/groupModel';
+import { Group } from '../models/db/group';
 import { ApiError } from '../exceptions/apiError';
 import { Model } from 'sequelize-typescript';
 import { GroupType } from '../models/types/groupType';
-import {Op} from "sequelize";
+import { Op } from 'sequelize';
+import { User } from '../models/db/userModel';
 
 class GroupController {
     async getAllGroups(
@@ -12,16 +13,19 @@ class GroupController {
         next: express.NextFunction
     ) {
         try {
-            const {searchPattern = ""} = req.query;
-            console.log(req.query)
+            const { searchPattern = '' } = req.query;
             const groupsWithUsers: Model<GroupType, GroupType>[] =
                 await Group.findAll({
-                    include: { model: User, attributes: ['name', 'post'],  where: {
-                            name:{[Op.like]: `%${searchPattern}%`},
-                        }, required: false},
-
+                    include: {
+                        model: User,
+                        attributes: ['name', 'post'],
+                        where: {
+                            name: { [Op.like]: `%${searchPattern}%` },
+                        },
+                        required: false,
+                    },
                 });
-            return res.status(200).json({ groups: groupsWithUsers});
+            return res.status(200).json({ groups: groupsWithUsers });
         } catch (e) {
             next(e);
         }

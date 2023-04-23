@@ -1,11 +1,15 @@
-import React, {FC} from 'react';
-import styles from "./unitRowsHeader.module.scss";
-import Arrow from "../arrow/arrow";
-import queryString from "query-string";
-import {useAppSelector} from "../../Store/hooks/store";
+import React, { FC } from 'react';
+import styles from './unitRowsHeader.module.scss';
+import Arrow from '../arrow/arrow';
+import queryString from 'query-string';
+import { useAppSelector } from '../../Store/hooks/store';
 
-const PersonUnitRowsHeader:FC<any> = ({isChecked, setCheck, changeActive}) => {
-    const sortType = useAppSelector(state=>state.usersReducer.typeOfSort);
+const PersonUnitRowsHeader: FC<any> = ({
+    isChecked,
+    setCheck,
+    changeActive,
+}) => {
+    const sortType = useAppSelector((state) => state.usersReducer.typeOfSort);
     const currentSortObject = queryString.parse(sortType);
 
     return (

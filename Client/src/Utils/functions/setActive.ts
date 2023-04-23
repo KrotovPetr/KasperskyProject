@@ -1,4 +1,4 @@
-import queryString from "query-string";
+import queryString from 'query-string';
 export const setActive = (columnName: string, sortType: string): string => {
     let query: string = '';
     let currentSortObject = queryString.parse(sortType);
@@ -17,5 +17,5 @@ export const setActive = (columnName: string, sortType: string): string => {
             searchPattern: currentSortObject.searchPattern,
         });
     }
-     return query;
+    return query;
 };

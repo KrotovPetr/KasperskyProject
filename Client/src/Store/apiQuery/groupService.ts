@@ -4,7 +4,7 @@ export const GroupAPI = api.injectEndpoints({
         fetchAllGroup: builder.query<any, any>({
             query: (params) => ({
                 url: '/groups',
-                params
+                params,
             }),
             providesTags: (result) => ['Group'],
         }),
