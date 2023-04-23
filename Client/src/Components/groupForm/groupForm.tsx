@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, {FC, useState} from 'react';
 import styles from './groupForm.module.scss';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { useCreateGroupMutation } from '../../Store/apiQuery/groupService';
@@ -9,17 +9,23 @@ interface IGroupFormInput {
 
 const GroupForm: FC = () => {
     const { register, handleSubmit } = useForm<IGroupFormInput>();
-    const [createNewGroup, { data, error, isLoading }] =
+    const [createNewGroup, {}] =
         useCreateGroupMutation();
+    const [isExist, checkExist] = useState<boolean>(false);
+    const onSubmit: SubmitHandler<IGroupFormInput> = async (inputValue: IGroupFormInput) => {
+        if(inputValue.name === ""){
+            checkExist(true);
+        } else {
+            checkExist(false);
+            await createNewGroup(inputValue);
+        }
 
-    const onSubmit: SubmitHandler<IGroupFormInput> = async (inputValue) => {
-        await createNewGroup(inputValue);
     };
 
     return (
         <form className={styles.groupForm} onSubmit={handleSubmit(onSubmit)}>
-            {error && (
-                <p className={styles.warningP}>This group has already exist!</p>
+            {isExist && (
+                <p className={styles.pError}>This group has already exist or input field is empty, try again!</p>
             )}
             <input
                 placeholder={'Group Name'}

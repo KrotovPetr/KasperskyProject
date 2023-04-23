@@ -1,6 +1,6 @@
 export const staffGroupSliderSettings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     arrows: false,
     slidesToShow: 4,

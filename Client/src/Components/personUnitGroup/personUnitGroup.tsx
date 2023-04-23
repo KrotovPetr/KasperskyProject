@@ -2,15 +2,18 @@ import React, { FC } from 'react';
 import styles from './personUnitGroup.module.scss';
 import { StyledSlider } from '../styledSlider/styledSlider';
 import Group from '../group/group';
-import { useFetchAllGroupQuery } from '../../Store/apiQuery/groupService';
 import { staffGroupSliderSettings } from '../../Utils/settings/sliderSettings';
 import { v4 as uuidv4 } from 'uuid';
 import GroupForm from '../groupForm/groupForm';
 import { TGroup } from '../../Utils/Types/types';
+import {useFetchAllGroupQuery} from "../../Store/apiQuery/groupService";
+import {useAppSelector} from "../../Store/hooks/store";
+
 
 const PersonUnitGroup: FC = () => {
-    const { data } = useFetchAllGroupQuery(100);
-
+    const sortGroupQuery = useAppSelector(state=>state.usersReducer.sortGroupQuery);
+    const {data} = useFetchAllGroupQuery(sortGroupQuery);
+    console.log(data);
     return (
         <div className={styles.unitGroup}>
             {data && (

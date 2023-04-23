@@ -1,7 +1,6 @@
 import { TPersonGroups } from '../Types/types';
 
 export const getGroups = (array: any): string => {
-    console.log(array);
     if (array.length === 0) {
         return 'Unmanaged';
     } else {

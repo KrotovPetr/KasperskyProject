@@ -1,7 +1,5 @@
 CREATE DATABASE kaspdb;
 \c kaspdb;
-BEGIN;
-
 
 CREATE TABLE IF NOT EXISTS public.groups
 (
@@ -48,8 +46,6 @@ ALTER TABLE IF EXISTS public.groups_users
     ON UPDATE NO ACTION
        ON DELETE NO ACTION
     NOT VALID;
-
-END;
 
 INSERT INTO users(name,email,domain,phone,post) VALUES ('Rozalin Ilyas','RozalinIlyas@companydomain.com','companydomain/RozalinIlyas','470-343-9820','Worker');
 INSERT INTO users(name,email,domain,phone,post) VALUES ('Thomasa Corington','ThomasaCorington@companydomain.com','companydomain/ThomasaCorington','664-199-3740','Staff');

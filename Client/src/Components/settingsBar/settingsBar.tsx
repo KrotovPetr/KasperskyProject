@@ -4,6 +4,9 @@ import Rows from '../../Utils/icons/rows.png';
 import Grid from '../../Utils/icons/grid.png';
 import Groups from '../../Utils/icons/groups.png';
 import queryString from 'query-string';
+import {useAppDispatch, useAppSelector} from "../../Store/hooks/store";
+import {setSortGroupType, setSortType} from "../../Store/usersSlice/usersSlice";
+import SettingBarSelector from "../settingBarSelector/settingBarSelector";
 
 type TSettingsBar = {
     toMoves: {
@@ -11,46 +14,28 @@ type TSettingsBar = {
         toGrid: () => void;
         toGroups: () => void;
     };
-
-    typeOfSort: string;
-    changeSort: (newObj: string) => void;
     typeOfView: string;
 };
 const SettingsBar: FC<TSettingsBar> = ({
-    toMoves,
-    typeOfSort,
-    changeSort,
-    typeOfView,
-}) => {
-    const currentSortObject = queryString.parse(typeOfSort);
-
+                                           toMoves,
+                                           typeOfView,
+                                       }) => {
+    const sortType = useAppSelector(state => state.usersReducer.typeOfSort);
+    const dispatch = useAppDispatch();
+    const currentSortObject = queryString.parse(sortType);
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const newObj = queryString.stringify({
             ...currentSortObject,
             searchPattern: event.target.value,
         });
-        changeSort(newObj);
+        if(typeOfView !== "groups") {
+            dispatch(setSortType(newObj))}
+        else {
+            console.log(newObj)
+            dispatch(setSortGroupType(newObj))
+        }
     };
 
-    const handleSelectColumnChange = (
-        event: React.ChangeEvent<HTMLSelectElement>
-    ) => {
-        const newObj = queryString.stringify({
-            ...currentSortObject,
-            currentColumnSort: event.target.value,
-        });
-        changeSort(newObj);
-    };
-
-    const handleSelectDirectionChange = (
-        event: React.ChangeEvent<HTMLSelectElement>
-    ) => {
-        const newObj = queryString.stringify({
-            ...currentSortObject,
-            sortDirection: event.target.value,
-        });
-        changeSort(newObj);
-    };
 
     return (
         <div className={styles.settingsBar}>
@@ -61,28 +46,7 @@ const SettingsBar: FC<TSettingsBar> = ({
                     handleInputChange(event);
                 }}
             />
-            {typeOfView === 'grid' && (
-                <div className={styles.sortGridParams}>
-                    <div className={styles.selectContainer}>
-                        <p>Column</p>
-                        <select onChange={handleSelectColumnChange}>
-                            <option defaultValue={''}></option>
-                            <option value={'name'}>Name</option>
-                            <option value={'domain'}>Domain</option>
-                            <option value={'email'}>Email</option>
-                            <option value={'phone'}>Phone</option>
-                        </select>
-                    </div>
-                    <div className={styles.selectContainer}>
-                        <p>Direction</p>
-                        <select onChange={handleSelectDirectionChange}>
-                            <option defaultValue={''}></option>
-                            <option value={'DESC'}>Descending order</option>
-                            <option value={'ASC'}>Ascending order</option>
-                        </select>
-                    </div>
-                </div>
-            )}
+            {typeOfView === 'grid' && (<SettingBarSelector/>)}
             <div className={styles.typeContainer}>
                 <img
                     src={Rows}

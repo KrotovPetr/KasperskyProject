@@ -16,3 +16,7 @@ body::-webkit-scrollbar-thumb {
     background-color: rgba(191, 191, 191, 0.61);
     border-radius: 20px;
 }
+.body {
+    overflow-y: scroll;
+    scrollbar-color: #0A4C95 #C2D2E4;
+}

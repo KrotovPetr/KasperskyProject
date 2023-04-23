@@ -10,7 +10,11 @@
     .input {
         width: 400px;
         height: 30px;
+        box-sizing: border-box;
+        padding: 0 0 0 10px;
     }
+
+
 
     .typeContainer {
         display: flex;
@@ -25,18 +29,4 @@
         }
     }
 
-    .sortGridParams {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        gap: 10px;
-        width: 30vw;
-
-        .selectContainer {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-    }
 }

@@ -1,21 +1,26 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface IGood {
-    query: string;
+    typeOfSort: string;
+    sortGroupQuery: string;
 }
 
 const initialState: IGood = {
-    query: '',
+    typeOfSort: '',
+    sortGroupQuery: ''
 };
 
 export const usersSlice = createSlice({
     name: 'fetchSlice',
     initialState,
     reducers: {
-        setQuery(state, action: PayloadAction<string>) {
-            state.query = action.payload;
+        setSortType(state, action: PayloadAction<string>){
+            state.typeOfSort = action.payload;
         },
+        setSortGroupType(state, action: PayloadAction<string>){
+            state.sortGroupQuery = action.payload;
+        }
     },
 });
-export const { setQuery } = usersSlice.actions;
+export const { setSortType, setSortGroupType } = usersSlice.actions;
 export default usersSlice.reducer;

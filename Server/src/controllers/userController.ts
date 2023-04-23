@@ -3,6 +3,7 @@ import { Group, User } from '../models/db/groupModel';
 import { Op } from 'sequelize';
 import { UserType } from '../models/types/userType';
 import { Model } from 'sequelize-typescript';
+import {sequelize} from "../db";
 
 class UserController {
     async getAllUsersWithSort(
@@ -47,7 +48,8 @@ class UserController {
                     },
                 });
             }
-
+            const [result, metadata] = await sequelize.query('SELECT * FROM users;')
+            console.log(result);
             return res.status(200).json({ users });
         } catch (e) {
             next(e);

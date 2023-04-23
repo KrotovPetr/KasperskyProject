@@ -1,5 +1,6 @@
 .group {
     width: 95%;
+    min-height: 255px;
     border: 2px solid #d9d8d8;
     height: fit-content;
     display: flex;
@@ -31,13 +32,21 @@
         .pPost {
             opacity: 0.5;
         }
+
+
+    }
+    .pText{
+        align-self: flex-start;
+        font-size: 14px;
     }
 
     .button {
+        width: 120px;
+        height: 40px;
         align-self: flex-start;
         margin: 20px 0 20px 0;
         box-sizing: border-box;
-        padding: 15px 20px 15px 20px;
+        padding: 10px 20px 10px 20px;
         border-radius: 20px;
         color: #ffffff;
         background: #0156ff;

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Slider from 'react-slick';
 
 export const StyledSlider = styled(Slider)`
-    width: 95%;
+    width: 98%;
     height: fit-content;
     box-sizing: border-box;
     .slick-arrow {

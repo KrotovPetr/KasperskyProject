@@ -5,11 +5,10 @@ import PersonCard from '../personCard/personCard';
 import { v4 as uuidv4 } from 'uuid';
 
 type TPersonUnit = {
-    typeOfSort: string;
+    data: any
 };
 
-const PersonUnitGrid: FC<TPersonUnit> = ({ typeOfSort }) => {
-    const { data } = useFetchAllUsersQuery(typeOfSort);
+const PersonUnitGrid: FC<TPersonUnit> = ({ data }) => {
     return (
         <div className={styles.personUnitGrid}>
             {data &&

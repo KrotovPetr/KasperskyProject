@@ -2,8 +2,9 @@ import { api } from '../store';
 export const GroupAPI = api.injectEndpoints({
     endpoints: (builder) => ({
         fetchAllGroup: builder.query<any, any>({
-            query: () => ({
+            query: (params) => ({
                 url: '/groups',
+                params
             }),
             providesTags: (result) => ['Group'],
         }),

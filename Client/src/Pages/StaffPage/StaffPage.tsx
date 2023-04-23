@@ -1,36 +1,23 @@
-import React, { FC, useState } from 'react';
+import React, {FC,  useState} from 'react';
 import PersonUnitRows from '../../Components/personUnitRows/personUnitRows';
 import styles from './staffPage.module.scss';
 import PersonUnitGrid from '../../Components/personUnitGrid/personUnitGrid';
 import PersonUnitGroup from '../../Components/personUnitGroup/personUnitGroup';
 import SettingsBar from '../../Components/settingsBar/settingsBar';
 import { useFetchAllUsersQuery } from '../../Store/apiQuery/userService';
-import queryString from 'query-string';
+import {setSortType} from '../../Store/usersSlice/usersSlice';
+import {useAppDispatch, useAppSelector} from '../../Store/hooks/store';
+import {setActive} from "../../Utils/functions/setActive";
 
 const StaffPage: FC = () => {
     const [typeOfView, changeView] = useState<string>('rows');
-    const [typeOfSort, changeSort] = useState<string>('');
-    const { data } = useFetchAllUsersQuery(typeOfSort);
-
+    const dispatch = useAppDispatch();
+    const sortType = useAppSelector(state=> state.usersReducer.typeOfSort);
+    const { data } = useFetchAllUsersQuery(sortType);
+    console.log(data)
     const changeActive = (columnName: string): void => {
-        let query: string = '';
-        let currentSortObject = queryString.parse(typeOfSort);
-        if (currentSortObject.currentColumnSort === columnName) {
-            let sortDirection: string =
-                currentSortObject.sortDirection === 'ASC' ? 'DESC' : 'ASC';
-            query = queryString.stringify({
-                currentColumnSort: columnName,
-                sortDirection,
-                searchPattern: currentSortObject.searchPattern,
-            });
-        } else {
-            query = queryString.stringify({
-                currentColumnSort: columnName,
-                sortDirection: 'DESC',
-                searchPattern: currentSortObject.searchPattern,
-            });
-        }
-        changeSort(query);
+        const query: string = setActive(columnName, sortType)
+        dispatch(setSortType(query));
     };
 
     const toRows: () => void = (): void => {
@@ -54,15 +41,12 @@ const StaffPage: FC = () => {
     const getType: () => JSX.Element = (): JSX.Element => {
         if (typeOfView.localeCompare('rows') === 0) {
             return (
-                <PersonUnitRows
-                    changeActive={changeActive}
-                    typeOfSort={typeOfSort}
-                />
+                <PersonUnitRows changeActive={changeActive} data={data}/>
             );
         } else if (typeOfView.localeCompare('grid') === 0) {
-            return <PersonUnitGrid typeOfSort={typeOfSort} />;
+            return <PersonUnitGrid data={data}/>;
         } else {
-            return <PersonUnitGroup />;
+            return <PersonUnitGroup/>;
         }
     };
 
@@ -70,8 +54,6 @@ const StaffPage: FC = () => {
         <div className={styles.staffPage}>
             <SettingsBar
                 toMoves={toMoves}
-                typeOfSort={typeOfSort}
-                changeSort={changeSort}
                 typeOfView={typeOfView}
             />
             <div className={styles.contentStaff}>{getType()}</div>

@@ -5,7 +5,7 @@ services:
         restart: always
         build:
             context: Server/sql
-            dockerfile: Server/sql/Dockerfile
+            dockerfile: Dockerfile
         environment:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres
@@ -16,7 +16,7 @@ services:
         container_name: kaspserver
         build:
             context: Server
-            dockerfile: Server/Dockerfile
+            dockerfile: Dockerfile
         restart: always
         environment:
             DB_USER: postgres
@@ -31,7 +31,7 @@ services:
         container_name: kaspfront
         build:
             context: Client
-            dockerfile: Client/Dockerfile
+            dockerfile: Dockerfile
         restart: always
         ports:
             - '3000:3000'
