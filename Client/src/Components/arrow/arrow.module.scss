@@ -1,0 +1,14 @@
+.arrowImg,
+.arrowImgUp,
+.arrowImgDown {
+    width: 15px;
+    height: 15px;
+}
+
+.arrowImgUp {
+    transform: rotate(90deg);
+}
+
+.arrowImgDown {
+    transform: rotate(-90deg);
+}

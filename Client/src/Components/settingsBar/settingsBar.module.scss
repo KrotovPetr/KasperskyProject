@@ -1,42 +1,42 @@
 .settingsBar {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 0 30px 0 30px;
-
-  .input {
-    width: 400px;
-    height: 30px;
-  }
-
-  .typeContainer {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 30px 0 30px;
 
-    .typeImg {
-      width: 30px;
-      cursor: pointer;
+    .input {
+        width: 400px;
+        height: 30px;
     }
-  }
 
-  .sortGridParams {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 10px;
-    width: 30vw;
+    .typeContainer {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
 
-    .selectContainer {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
+        .typeImg {
+            width: 30px;
+            cursor: pointer;
+        }
     }
-  }
+
+    .sortGridParams {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        gap: 10px;
+        width: 30vw;
+
+        .selectContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+    }
 }

@@ -1,8 +1,8 @@
-import { Router } from "express";
-import groupController from "../controllers/groupController";
+import { Router } from 'express';
+import groupController from '../controllers/groupController';
 
-export const groupRouter = Router();
+export const groupRouter: Router = Router();
 
-groupRouter.get("/", groupController.getAllGroups);
+groupRouter.get('/', groupController.getAllGroups);
 
-groupRouter.post("/", groupController.addNewGroup);
+groupRouter.post('/', groupController.addNewGroup);

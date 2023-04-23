@@ -1,38 +1,39 @@
 .header {
-  width: 100%;
-  height: 75px;
-  background: #0156ff;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: space-between;
-
-  .image {
-    width: 50px;
-    height: 50px;
-    padding: 0 0 0 20px;
-  }
-
-  .linksContainer {
+    width: 100%;
+    height: 75px;
+    background: #0156ff;
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
     justify-content: space-between;
-    gap: 50px;
-    padding: 0 50px 0 0;
 
-    .link {
-      text-decoration: none;
-      color: #ffffff;
-      cursor: pointer;
-
-      &:focus,
-      &:hover,
-      &:visited,
-      &:link,
-      &:active {
-        text-decoration: none;
-      }
+    .image {
+        width: 50px;
+        height: 50px;
+        padding: 0 0 0 20px;
+        cursor: pointer;
     }
-  }
+
+    .linksContainer {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+        padding: 0 50px 0 0;
+
+        .link {
+            text-decoration: none;
+            color: #ffffff;
+            cursor: pointer;
+
+            &:focus,
+            &:hover,
+            &:visited,
+            &:link,
+            &:active {
+                text-decoration: none;
+            }
+        }
+    }
 }

@@ -1,34 +1,42 @@
-import React, { useState } from "react";
-import styles from "./personRow.module.scss";
-import { v4 as uuidv4 } from "uuid";
-import { getGroups } from "../../Utils/functions/getGroups";
+import React, { FC, useState } from 'react';
+import styles from './personRow.module.scss';
+import { v4 as uuidv4 } from 'uuid';
+import { getGroups } from '../../Utils/functions/getGroups';
+import { TData } from '../../Utils/Types/types';
+import { getStyleForPosition } from '../../Utils/functions/getStyleForPosition';
 
-const PersonRow = (props: any) => {
-  const [isPersonChecked, changeChecked] = useState<boolean>(false);
-  const getStyleForPosition: () => string = (): string => {
-    return `${styles.position} ${
-      props.isChecked || isPersonChecked
-        ? styles.checkedPosition
-        : props.index % 2 === 0
-        ? styles.oddPosition
-        : ""
-    } `;
-  };
+type TPersonRow = {
+    person: TData;
+    index: number;
+    isChecked: boolean;
+};
 
-  return (
-    <div className={getStyleForPosition()} key={uuidv4()}>
-      <input
-        type="checkbox"
-        checked={props.isChecked || isPersonChecked}
-        onChange={(): void => changeChecked(!isPersonChecked)}
-      />
-      <div className={styles.name}>{props.person.name}</div>
-      <div className={styles.domain}>{props.person.domain}</div>
-      <div className={styles.email}>{props.person.email}</div>
-      <div className={styles.groups}>{getGroups(props.person.groups)}</div>
-      <div className={styles.phone}>{props.person.phone}</div>
-    </div>
-  );
+const PersonRow: FC<TPersonRow> = ({ person, index, isChecked }) => {
+    const [isPersonChecked, changeChecked] = useState<boolean>(false);
+
+    const changeHandler: () => void = (): void => {
+        changeChecked(!isPersonChecked);
+    };
+
+    return (
+        <div
+            className={getStyleForPosition(index, isPersonChecked, isChecked)}
+            key={uuidv4()}
+        >
+            <input
+                type="checkbox"
+                checked={isChecked || isPersonChecked}
+                onChange={changeHandler}
+            />
+            <div className={styles.name}>{person.name}</div>
+            <div className={styles.domain}>{person.domain}</div>
+            <div className={styles.email}>{person.email}</div>
+            {person.groups && (
+                <div className={styles.groups}>{getGroups(person.groups)}</div>
+            )}
+            <div className={styles.phone}>{person.phone}</div>
+        </div>
+    );
 };
 
 export default PersonRow;

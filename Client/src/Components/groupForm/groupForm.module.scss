@@ -1,27 +1,27 @@
 .groupForm {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-  margin: 20px 0 20px 0;
-  gap: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 20px 0 20px 0;
+    gap: 20px;
 
-  .input {
-    width: 300px;
-    height: 30px;
-    padding: 0 0 0 10px;
-  }
+    .input {
+        width: 300px;
+        height: 30px;
+        padding: 0 0 0 10px;
+    }
 
-  .submitInput {
-    width: 120px;
-    height: 40px;
-    border: none;
-    background: #0156ff;
-    color: white;
-    font-weight: normal;
-    border-radius: 40px;
-    font-size: 14px;
-    cursor: pointer;
-  }
+    .submitInput {
+        width: 120px;
+        height: 40px;
+        border: none;
+        background: #0156ff;
+        color: white;
+        font-weight: normal;
+        border-radius: 40px;
+        font-size: 14px;
+        cursor: pointer;
+    }
 }

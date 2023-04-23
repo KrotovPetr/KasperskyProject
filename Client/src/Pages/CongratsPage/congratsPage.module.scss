@@ -1,0 +1,86 @@
+.congratsPage {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    .formCard {
+        width: 600px;
+        height: 600px;
+        background: #ffffff;
+        box-shadow: 0px 0px 30px #eeeeee, -2px -2px 50px #ffffff;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: center;
+
+        .header {
+            color: #0156ff;
+            font-size: 72px;
+            font-weight: bold;
+        }
+
+        .pText {
+            color: #0156ff;
+            font-weight: bolder;
+        }
+
+        .button {
+            width: 150px;
+            height: 50px;
+            background: white;
+            border: 3px solid #0156ff;
+            border-radius: 20px;
+            color: #0156ff;
+            font-weight: bolder;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .button:hover {
+            background: #0156ff;
+            border: 3px solid white;
+            color: white;
+            transition: 0.5s;
+        }
+
+        .imgLinksContainer {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: space-around;
+            margin: 80px 0 100px 0;
+            width: 50%;
+            height: fit-content;
+            padding: 10px;
+            gap: 10px;
+
+            .imgContainer {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
+                justify-content: center;
+                transition: 0.5s;
+                border: 2px solid #ffffff;
+                cursor: pointer;
+                width: 100px;
+                height: 100px;
+                text-decoration: none;
+
+                .img {
+                    width: 30px;
+                    height: 30px;
+                    margin: 10px 0 10px 0;
+                }
+            }
+
+            .imgContainer:hover {
+                transition: 0.5s;
+                border: 2px solid #0156ff;
+            }
+        }
+    }
+}

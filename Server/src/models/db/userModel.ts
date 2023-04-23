@@ -1,7 +1,7 @@
-import { sequelize } from "../../db";
-import { Model } from "sequelize-typescript";
-import { DataTypes } from "sequelize";
-import { UserType } from "../types/userType";
+import { sequelize } from '../../db';
+import { Model } from 'sequelize-typescript';
+import { DataTypes } from 'sequelize';
+import { UserType } from '../types/userType';
 //
 // export const User = sequelize.define<Model<UserType>>(
 //     'users',

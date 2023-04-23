@@ -14,7 +14,8 @@
 <img src="https://img.shields.io/badge/React-blue?logo=React&logoColor=white&style=for-the-badge" alt="React Badge"/>
 <img src="https://img.shields.io/badge/Redux-blueviolet?logo=Redux&logoColor=white&style=for-the-badge" alt="Redux Toolkit Badge"/>
 
-[//]: # (<img src="https://img.shields.io/badge/Jest-blue?logo=Jest&logoColor=white&style=for-the-badge" alt="Jest Badge"/>)
+[//]: # '<img src="https://img.shields.io/badge/Jest-blue?logo=Jest&logoColor=white&style=for-the-badge" alt="Jest Badge"/>'
+
 <img src="https://img.shields.io/badge/Docker-blue?logo=Docker&logoColor=white&style=for-the-badge" alt="Docker Badge"/>
 </div>
 

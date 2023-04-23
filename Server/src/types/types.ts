@@ -1,9 +1,3 @@
-export type TCurrentSort = {
-    currentColumnSort?: string;
-    searchPattern?: string;
-    sortDirection?: string;
-};
-
 export type TThroughGroupsUsers = {
     userIdUser: string;
     groupIdGroup: string;
@@ -34,7 +28,3 @@ export type TData = {
     post: string;
     groups?: TPersonGroups;
 };
-
-export interface IUserDto extends Omit<string, any> {
-    users: TData[];
-}
